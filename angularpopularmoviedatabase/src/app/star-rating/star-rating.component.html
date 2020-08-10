@@ -1,0 +1,11 @@
+<article class="row">
+  <div class="col-sm-12">
+      <ul class="list-inline rating-list"
+          *ngFor="let item of [].constructor(starscount); let star = index" style="display: inline-block" >
+            <li
+            [ngClass]="{'selected' : (star < selectedValue)}">
+            <i class="fa fa-star"></i>
+            </li>
+      </ul>
+  </div>
+</article>
