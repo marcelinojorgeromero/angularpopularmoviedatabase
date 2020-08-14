@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,14 +9,12 @@ export class HeaderComponent implements OnInit {
   searchTerm: string;
 
   @Input() isDeviceXs: boolean;
+  @Input() title: string;
+  @Output() searchMovieQuery = new EventEmitter<string>();
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     this.searchTerm = '';
-  }
-
-  searchMovie(): void {
-    console.log(this.searchTerm);
   }
 }

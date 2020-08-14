@@ -1,7 +1,5 @@
 
 
-<app-header [isDeviceXs]="isDeviceXs"></app-header>
+<app-header [isDeviceXs]="isDeviceXs" [title]="title" (searchMovieQuery)="performSearch($event)"></app-header>
 
-<app-content [isDeviceXs]="isDeviceXs"></app-content>
-
-<router-outlet></router-outlet>
+<app-content [isDeviceXs]="isDeviceXs" [moviesPage]="tmdbStoreService.movies$ | async"></app-content>

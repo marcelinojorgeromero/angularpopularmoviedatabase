@@ -3,26 +3,21 @@
     <button *ngIf="isDeviceXs" type="button" mat-icon-button (click)="drawer.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <div fxLayoutAlign="space-evenly center">
-      <mat-paginator [length]="totalPages"
-               [pageSize]="itemsPerPage"
-               (page)="pageEvent = $event"></mat-paginator>
-    </div>
   </mat-toolbar>
 
   <mat-drawer-container>
     <mat-drawer #drawer [mode]="isDeviceXs?'over':'side'" [opened]="!isDeviceXs" position="start" fxFlex="20"
       fxLayout="column" fxLayoutAlign="start space-between" [style.marginTop.px]="10" [style.top.px]="sideBarScroll()">
-      <mat-list role="list" class="list-width" *ngFor="let movie of movies.results">
+      <mat-list role="list" class="list-width" *ngFor="let movie of moviesPage.results">
         <mat-list-item role="listitem" class="list-item" matRipple (click)="showMovieInfo(movie)">{{ movie.originalTitle }}</mat-list-item>
       </mat-list>
     </mat-drawer>
 
     <mat-drawer-content>
-      <div class="example-sidenav-content" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-evenly center">
+      <div class="example-sidenav-content" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="center center" *ngIf="selectedMovie.id > 0">
         <mat-card class="movie-poster-card">
-          <img *ngIf="selectedMovie.posterPath !== 'N/A' || selectedMovie.posterPath !== ''" mat-card-image [src]="selectedMovie.fullPosterPath">
-          <img *ngIf="selectedMovie.posterPath === 'N/A' || selectedMovie.posterPath === ''" mat-card-image src="https://f4.bcbits.com/img/a0252633309_10.jpg">
+          <img *ngIf="selectedMovie.posterPath !== 'N/A'" mat-card-image [src]="selectedMovie.fullPosterPath">
+          <img *ngIf="selectedMovie.posterPath === 'N/A'" mat-card-image src="https://f4.bcbits.com/img/a0252633309_10.jpg">
         </mat-card>
         <mat-card class="movie-poster-info-card">
           <mat-card-header>

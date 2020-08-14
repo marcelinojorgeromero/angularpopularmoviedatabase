@@ -16,7 +16,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CookieService } from 'ngx-cookie-service';
-import { PopularmoviesComponent } from './popularmovies/popularmovies.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { ContentComponent } from './content/content.component';
@@ -26,7 +25,6 @@ import { StarRatingComponent } from './star-rating/star-rating.component';
 @NgModule({
   declarations: [
     AppComponent,
-    PopularmoviesComponent,
     HeaderComponent,
     ContentComponent,
     StarRatingComponent

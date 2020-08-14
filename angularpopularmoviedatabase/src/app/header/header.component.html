@@ -3,15 +3,15 @@
     <div fxLayout="row">
       <button class="logo" mat-button>
         <mat-icon fontSet="fas" fontIcon="fa-film"></mat-icon>
-        <span> Movie viewer</span>
+        <span> {{ title }}</span>
       </button>
     </div>
 
     <div *ngIf="!isDeviceXs" fxLayout="row">
       <mat-form-field>
         <mat-label><i class="fas fa-search"></i> Search...</mat-label>
-        <input matInput type="text" [(ngModel)]="searchTerm" (keydown.enter)="searchMovie()">
-        <button mat-button *ngIf="searchTerm" matSuffix mat-icon-button aria-label="Search" (click)="searchMovie()">
+        <input matInput type="text" [(ngModel)]="searchTerm" (keydown.enter)="searchMovieQuery.emit(searchTerm)">
+        <button mat-button *ngIf="searchTerm" matSuffix mat-icon-button aria-label="Search" (click)="searchMovieQuery.emit(searchTerm)">
           <mat-icon>search</mat-icon>
         </button>
       </mat-form-field>
@@ -20,8 +20,8 @@
   <mat-toolbar-row *ngIf="isDeviceXs" fxLayoutAlign="space-between end">
     <mat-form-field>
       <mat-label><i class="fas fa-search"></i> Search...</mat-label>
-      <input matInput type="text" [(ngModel)]="searchTerm" (keydown.enter)="searchMovie()">
-      <button mat-button *ngIf="searchTerm" matSuffix mat-icon-button aria-label="Search" (click)="searchMovie()">
+      <input matInput type="text" [(ngModel)]="searchTerm" (keydown.enter)="searchMovieQuery.emit(searchTerm)">
+      <button mat-button *ngIf="searchTerm" matSuffix mat-icon-button aria-label="Search" (click)="searchMovieQuery.emit(searchTerm)">
         <mat-icon>search</mat-icon>
       </button>
     </mat-form-field>
